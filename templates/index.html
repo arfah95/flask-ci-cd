@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arfa Sikander - Computer Engineering Student & Cloud Enthusiast</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'navy': '#1e3a8a',
+                        'deep-blue': '#1e40af',
+                        'gold': '#f59e0b'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .typing-animation {
+            border-right: 2px solid #f59e0b;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 50% { border-color: #f59e0b; }
+            51%, 100% { border-color: transparent; }
+        }
+        .dark .gradient-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+        .skill-bar {
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #1e40af, #f59e0b);
+            border-radius: 4px;
+            transition: width 2s ease;
+        }
+    </style>
+</head>
+<body class="font-sans transition-colors duration-300" id="body">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-2xl font-bold text-navy dark:text-white">
+                    Arfa<span class="text-gold">.</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 dark:text-gray-300 hover:text-navy dark:hover:text-gold transition-colors">Home</a>
+                    <a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-navy dark:hover:text-gold transition-colors">About</a>
+                    <a href="#projects" class="text-gray-700 dark:text-gray-300 hover:text-navy dark:hover:text-gold transition-colors">Projects</a>
+                    <a href="#experience" class="text-gray-700 dark:text-gray-300 hover:text-navy dark:hover:text-gold transition-colors">Experience</a>
+                    <a href="#skills" class="text-gray-700 dark:text-gray-300 hover:text-navy dark:hover:text-gold transition-colors">Skills</a>
+                    <a href="#contact" class="text-gray-700 dark:text-gray-300 hover:text-navy dark:hover:text-gold transition-colors">Contact</a>
+                </div>
+                <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:inline"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen gradient-bg flex items-center justify-center text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="fade-in">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                    Hi, I'm <span class="text-gold">Arfa Sikander</span>
+                </h1>
+                <div class="text-xl md:text-2xl mb-8 h-8">
+                    <span id="typing-text" class="typing-animation"></span>
+                </div>
+                <p class="text-lg md:text-xl mb-12 max-w-3xl mx-auto opacity-90">
+                    Computer Engineering Student at UET Taxila | Cloud Computing Enthusiast | STEM Trainer
+                    <br>Passionate about Python, IoT, and building innovative solutions
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#projects" class="bg-gold hover:bg-yellow-500 text-navy px-8 py-4 rounded-lg font-semibold transition-all transform hover:scale-105">
+                        View My Work
+                    </a>
+                    <a href="#contact" class="border-2 border-white hover:bg-white hover:text-navy px-8 py-4 rounded-lg font-semibold transition-all">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">About Me</h2>
+                <div class="w-24 h-1 bg-gold mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <div class="bg-gradient-to-br from-navy to-deep-blue p-8 rounded-2xl text-white">
+                        <h3 class="text-2xl font-bold mb-4">Multi-Dimensional Profile</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-graduation-cap text-gold text-xl"></i>
+                                <span>Computer Engineering Student at UET Taxila</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-cloud text-gold text-xl"></i>
+                                <span>Cloud Computing Enthusiast</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-chalkboard-teacher text-gold text-xl"></i>
+                                <span>STEM Trainer & Educator</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-code text-gold text-xl"></i>
+                                <span>Python & IoT Developer</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">My Journey</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                        As an undergraduate Computer Engineering student at the University of Engineering and Technology Taxila,
+                        I'm passionate about bridging the gap between theoretical knowledge and practical innovation. My journey
+                        spans across multiple domains - from Python development and cloud computing to IoT solutions and STEM education.
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                        I believe in learning by building. Whether it's developing security tools, creating interactive games,
+                        or designing IoT solutions for everyday problems, I approach each project with curiosity and dedication
+                        to create meaningful impact.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="text-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+                            <div class="text-2xl font-bold text-navy dark:text-gold">5+</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-300">Projects Built</div>
+                        </div>
+                        <div class="text-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+                            <div class="text-2xl font-bold text-navy dark:text-gold">3+</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-300">Tech Domains</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">Featured Projects</h2>
+                <div class="w-24 h-1 bg-gold mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    A showcase of my technical expertise across different domains
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-gray-50 dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg card-hover fade-in">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="bg-red-100 dark:bg-red-900 p-3 rounded-lg">
+                                <i class="fas fa-keyboard text-red-600 dark:text-red-400 text-2xl"></i>
+                            </div>
+                            <span class="bg-red-100 dark:bg-red-900 text-red-600 dark:text-red-400 px-3 py-1 rounded-full text-sm font-medium">Security</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Python Keylogger</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Advanced keylogger implementation in Python demonstrating cybersecurity concepts and system monitoring capabilities.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 px-2 py-1 rounded text-sm">Python</span>
+                            <span class="bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400 px-2 py-1 rounded text-sm">Security</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-gray-50 dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg card-hover fade-in">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="bg-purple-100 dark:bg-purple-900 p-3 rounded-lg">
+                                <i class="fas fa-gamepad text-purple-600 dark:text-purple-400 text-2xl"></i>
+                            </div>
+                            <span class="bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-400 px-3 py-1 rounded-full text-sm font-medium">Game Dev</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Swaglords of Space</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Interactive space-themed game developed using SFML and C++, featuring engaging gameplay mechanics and graphics.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 px-2 py-1 rounded text-sm">C++</span>
+                            <span class="bg-red-100 dark:bg-red-900 text-red-600 dark:text-red-400 px-2 py-1 rounded text-sm">SFML</span>
+                            <span class="bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400 px-2 py-1 rounded text-sm">Game Design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bg-gray-50 dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg card-hover fade-in">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="bg-green-100 dark:bg-green-900 p-3 rounded-lg">
+                                <i class="fas fa-eye text-green-600 dark:text-green-400 text-2xl"></i>
+                            </div>
+                            <span class="bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400 px-3 py-1 rounded-full text-sm font-medium">IoT</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Driver Anti-Sleep Glasses</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Arduino-based safety device that monitors driver alertness and prevents accidents caused by drowsiness.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 px-2 py-1 rounded text-sm">Arduino</span>
+                            <span class="bg-yellow-100 dark:bg-yellow-900 text-yellow-600 dark:text-yellow-400 px-2 py-1 rounded text-sm">Sensors</span>
+                            <span class="bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400 px-2 py-1 rounded text-sm">Safety Tech</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="bg-gray-50 dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg card-hover fade-in">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="bg-yellow-100 dark:bg-yellow-900 p-3 rounded-lg">
+                                <i class="fas fa-lightbulb text-yellow-600 dark:text-yellow-400 text-2xl"></i>
+                            </div>
+                            <span class="bg-yellow-100 dark:bg-yellow-900 text-yellow-600 dark:text-yellow-400 px-3 py-1 rounded-full text-sm font-medium">Smart Home</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Automatic Room Light</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Smart lighting system using Arduino and sensors for automated room illumination based on occupancy and ambient light.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 px-2 py-1 rounded text-sm">Arduino</span>
+                            <span class="bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-400 px-2 py-1 rounded text-sm">IoT</span>
+                            <span class="bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400 px-2 py-1 rounded text-sm">Automation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">Work Experience</h2>
+                <div class="w-24 h-1 bg-gold mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    Professional experience in STEM education and training
+                </p>
+            </div>
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gray-50 dark:bg-gray-900 rounded-2xl p-8 shadow-lg fade-in">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+                        <div class="flex items-center space-x-4 mb-4 md:mb-0">
+                            <div class="bg-gradient-to-br from-navy to-deep-blue p-4 rounded-xl">
+                                <i class="fas fa-chalkboard-teacher text-white text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900 dark:text-white">STEM Trainer</h3>
+                                <p class="text-lg text-navy dark:text-gold font-semibold">Junior Coderz</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="bg-gold/20 text-gold px-4 py-2 rounded-full font-semibold">
+                                May 2024 - Present
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                            Currently serving as a STEM Trainer at Junior Coderz, where I inspire and educate young minds
+                            in the fundamentals of coding and technology. My role involves designing engaging curriculum
+                            and delivering interactive coding sessions to students.
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-semibold text-gray-900 dark:text-white mb-3">Key Responsibilities:</h4>
+                                <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                                    <li class="flex items-center space-x-2">
+                                        <i class="fas fa-check-circle text-gold text-sm"></i>
+                                        <span>Teaching coding fundamentals to young students</span>
+                                    </li>
+                                    <li class="flex items-center space-x-2">
+                                        <i class="fas fa-check-circle text-gold text-sm"></i>
+                                        <span>Developing interactive learning materials</span>
+                                    </li>
+                                    <li class="flex items-center space-x-2">
+                                        <i class="fas fa-check-circle text-gold text-sm"></i>
+                                        <span>Mentoring students in programming concepts</span>
+                                    </li>
+                                    <li class="flex items-center space-x-2">
+                                        <i class="fas fa-check-circle text-gold text-sm"></i>
+                                        <span>Creating engaging STEM activities</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 dark:text-white mb-3">Skills Developed:</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 px-3 py-1 rounded-full text-sm">Teaching</span>
+                                    <span class="bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400 px-3 py-1 rounded-full text-sm">Curriculum Design</span>
+                                    <span class="bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-400 px-3 py-1 rounded-full text-sm">Mentoring</span>
+                                    <span class="bg-yellow-100 dark:bg-yellow-900 text-yellow-600 dark:text-yellow-400 px-3 py-1 rounded-full text-sm">Communication</span>
+                                    <span class="bg-red-100 dark:bg-red-900 text-red-600 dark:text-red-400 px-3 py-1 rounded-full text-sm">Leadership</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">Technical Skills</h2>
+                <div class="w-24 h-1 bg-gold mx-auto mb-6"></div>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    Expertise across multiple technology domains
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Programming Languages -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg fade-in">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-100 dark:bg-blue-900 p-3 rounded-lg mr-4">
+                            <i class="fas fa-code text-blue-600 dark:text-blue-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Programming</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 dark:text-gray-300">Python</span>
+                                <span class="text-gray-500 dark:text-gray-400">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 dark:text-gray-300">C++</span>
+                                <span class="text-gray-500 dark:text-gray-400">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 dark:text-gray-300">Arduino</span>
+                                <span class="text-gray-500 dark:text-gray-400">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cloud & DevOps -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg fade-in">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-green-100 dark:bg-green-900 p-3 rounded-lg mr-4">
+                            <i class="fas fa-cloud text-green-600 dark:text-green-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Cloud Computing</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 dark:text-gray-300">AWS</span>
+                                <span class="text-gray-500 dark:text-gray-400">20%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 20%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 dark:text-gray-300">Docker</span>
+                                <span class="text-gray-500 dark:text-gray-400">10%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 10%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 dark:text-gray-300">Linux</span>
+                                <span class="text-gray-500 dark:text-gray-400">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IoT & Hardware -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg fade-in">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-purple-100 dark:bg-purple-900 p-3 rounded-lg mr-4">
+                            <i class="fas fa-microchip text-purple-600 dark:text-purple-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">IoT & Hardware</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 dark:text-gray-300">Arduino</span>
+                                <span class="text-gray-500 dark:text-gray-400">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 dark:text-gray-300">Sensors</span>
+                                <span class="text-gray-500 dark:text-gray-400">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 dark:text-gray-300">Circuit Design</span>
+                                <span class="text-gray-500 dark:text-gray-400">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 gradient-bg text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Let's Connect</h2>
+                <div class="w-24 h-1 bg-gold mx-auto mb-6"></div>
+                <p class="text-xl opacity-90 max-w-3xl mx-auto">
+                    Ready to collaborate on innovative projects or discuss opportunities in tech and education
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <h3 class="text-2xl font-bold mb-6">Get In Touch</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-gold p-3 rounded-lg">
+                                <i class="fas fa-envelope text-navy text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold">Email</div>
+                                <div class="opacity-80">sikanderarfa95@gmail.com</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-gold p-3 rounded-lg">
+                                <i class="fab fa-linkedin text-navy text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold">LinkedIn</div>
+                                <div class="opacity-80">www.linkedin.com/in/arfa-sikander-a94a69337</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-gold p-3 rounded-lg">
+                                <i class="fab fa-github text-navy text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold">GitHub</div>
+                                <div class="opacity-80">github.com/arfa95</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-gold p-3 rounded-lg">
+                                <i class="fas fa-university text-navy text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold">University</div>
+                                <div class="opacity-80">UET Taxila</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl">
+                        <h3 class="text-xl font-bold mb-6">Send a Message</h3>
+                        <form class="space-y-4" id="contact-form">
+                            <div>
+                                <input type="text" placeholder="Your Name" class="w-full p-4 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:border-gold">
+                            </div>
+                            <div>
+                                <input type="email" placeholder="Your Email" class="w-full p-4 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:border-gold">
+                            </div>
+                            <div>
+                                <textarea rows="4" placeholder="Your Message" class="w-full p-4 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:border-gold resize-none"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-gold hover:bg-yellow-500 text-navy py-4 rounded-lg font-semibold transition-all transform hover:scale-105">
+                                Send Message
+                            </button>
+                        </form>
+                        <div id="form-message" class="mt-4 p-4 bg-gold/20 border border-gold/30 rounded-lg text-center hidden">
+                            <p class="text-gold font-semibold">Demo Form - Message would be sent in a real implementation!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="text-2xl font-bold mb-4">
+                    Arfa<span class="text-gold">.</span>
+                </div>
+                <p class="text-gray-400 mb-6">
+                    Computer Engineering Student | Cloud Enthusiast | STEM Trainer
+                </p>
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="#" class="text-gray-400 hover:text-gold transition-colors">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-gold transition-colors">
+                        <i class="fab fa-github text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-gold transition-colors">
+                        <i class="fab fa-twitter text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-gold transition-colors">
+                        <i class="fas fa-envelope text-2xl"></i>
+                    </a>
+                </div>
+                <div class="border-t border-gray-800 pt-8">
+                    <p class="text-gray-400">
+                        © 2024 Arfa Sikander. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.getElementById('body');
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark');
+            localStorage.setItem('theme', body.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Load saved theme
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark');
+        }
+
+        // Typing Animation
+        const typingText = document.getElementById('typing-text');
+        const texts = [
+            'Computer Engineering Student',
+            'Cloud Computing Enthusiast',
+            'STEM Trainer & Educator',
+            'Python Developer',
+            'IoT Innovation Builder'
+        ];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeWriter() {
+            const currentText = texts[textIndex];
+
+            if (isDeleting) {
+                typingText.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingText.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentText.length) {
+                setTimeout(() => isDeleting = true, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+            }
+
+            setTimeout(typeWriter, isDeleting ? 50 : 100);
+        }
+
+        typeWriter();
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Contact Form
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const message = document.getElementById('form-message');
+            message.classList.remove('hidden');
+            setTimeout(() => {
+                message.classList.add('hidden');
+            }, 3000);
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = '0.2s';
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('bg-white/95', 'dark:bg-gray-900/95');
+            } else {
+                nav.classList.remove('bg-white/95', 'dark:bg-gray-900/95');
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96299198d2e17b63',t:'MTc1MzA4OTA2NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
